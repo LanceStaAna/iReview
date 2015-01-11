@@ -1,0 +1,74 @@
+<?php $TD_questions = Database::getRow_v2('questions INNER JOIN users ON questions.FN_USER_ID = users.FN_USER_ID ORDER BY `FN_QUESTION_ID` DESC');?>
+<?php 
+$colours = array('007AFF','FF7000','FF7000','15E25F','CFC700','CFC700','CF1100','CF00BE','F00');
+$user_colour = array_rand($colours);
+echo $_SERVER['REMOTE_ADDR'];
+?>
+
+<!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+               <!-- <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><span class="glyphicon glyphicon-list"></a>-->
+						<div class="container">
+						<div class="row" id="askQues">
+							<!--<form data-bind="submit: writePost" class="col-md-8">
+							<div class="form-group">
+								<label for="message">Write a new post:</label>
+								<textarea class="form-control" name="message" id="message" placeholder="New post"></textarea>
+							</div>
+							<button type="submit" class="btn btn-default">Submit</button>
+							</form>-->
+						</div>
+						<div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1">
+                <div class="post-preview">
+					<?php if($TD_questions):
+						foreach($TD_questions as $col):?>
+						 <a>
+                        <h2 class="post-title">
+                            <?=$col['FC_QUESTION'];?>
+                        </h2>
+						</a>
+						<p class="post-meta">Posted by <?=$col['FC_USER_FIRSTNAME'];?> on September 24, 2014</p>
+						
+						<hr>
+					<?php endforeach; endif;?>
+                   
+                    
+		   <button class="btn btn-success" onclick="myFunction()" id="answer-btn">Answer</button><a href="#"><span onmouseover="changetogreen()" onmouseout="changetoblack()" id="thumbsup" class="glyphicon glyphicon-thumbs-up green"></span></a><a href="#"><span onmouseout="changetoblack()" onmouseover="changetored()" id="thumbsdown" class="glyphicon glyphicon-thumbs-down red"></span></a>
+					<script>
+						function myFunction(){
+						document.getElementById("popupinput").style.visibility = "visible";
+						document.getElementById("answer-btn").style.visibility = "hidden";
+						}
+						function cancel(){
+						document.getElementById("popupinput").style.visibility = "hidden";
+						}
+						function changetogreen(){
+						    document.getElementById("thumbsup").style.color = "green";
+						}
+						function changetoblack(){
+						    document.getElementById("thumbsup").style.color = "black";
+						    document.getElementById("thumbsdown").style.color = "black";
+						}
+						function changetored(){
+						    document.getElementById("thumbsdown").style.color = "red";
+						}
+					</script>
+					<div id="popupinput" class="new-post pad-bottom" data-bind="visible: signedIn">
+					<form data-bind="submit: writePost">
+						<div class="form-group">
+							<label for="message">Write a new post:</label>
+							<textarea class="form-control" name="message" id="message" placeholder="New post"></textarea>
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+						<button type="submit" class="btn btn-default" onclick="cancel()">Cancel</button>
+						
+					</form>
+					
+				</div>
+                </div>
+						</div>
+						
+					</div>
+				</div>
+			</div>

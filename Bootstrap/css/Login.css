@@ -1,0 +1,37 @@
+.logo{
+	float:right;
+	margin-top:8%;
+	margin-right:19%;
+	width:20%;
+}
+.body {
+    background: #0094ff;
+
+}
+
+.left {
+	float:left;
+	margin-top:18%;
+	margin-left:15%;
+}
+
+.holdit{
+	margin-top:15%;
+	float:right;
+}
+
+.top{
+	margin-right:23%;
+	font-family: Times New Roman;
+	font-size: 30px;
+	font-weight:400;
+}
+
+.right{
+	margin-top:1%;
+	font-family: Times New Roman;
+	font-style:italic;
+	font-size:20px;
+	font-weight:300;
+	margin-right:15%;
+}

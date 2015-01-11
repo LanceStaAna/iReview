@@ -1,0 +1,19 @@
+
+<div class="container">
+<div class="site-heading">
+	<h1>Choose Subject</h1>
+	<hr class="large">
+	
+</div>
+		<center>
+		<?php foreach ($td_all_subjects as $row): ?>
+		<div class="col-md-3">
+		<a href="./?subject=<?=$row['FN_SUBJECT_ID'];?>"><img src="./subjects/<?=$row['FC_SUBJECT_PIC'];?>" width="200px" height="200px"/><br/> <?=$row['FC_SUBJECT_NAME'];?></a>
+		</div>
+		<?php endforeach;?>
+		</center>
+
+
+
+</div>
+

@@ -1,0 +1,59 @@
+
+<div class="container">
+<div class="site-heading">
+	<h1><img src="./subjects/<?=$td_selected_subject['FC_SUBJECT_PIC'];?>" width="100px" height="100"/><?=$td_selected_subject['FC_SUBJECT_NAME'];?>
+			
+			</h1>
+	<hr class="large">
+	
+</div>
+		 <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <a data-toggle="modal" class="new_group" data-id="<?=$_GET['subject'];?>" href="#modal_new_group"> Add A Group <span class="glyphicon glyphicon-plus"></span></a>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <table class="table table-striped table-hover" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>Group Name</th>
+                                    <th>Created By</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                
+                                <?php foreach ($td_circles as $row) : ?>
+				
+								    <tr class="odd gradeX">
+	                                    <td><?=$row['FC_GROUP_NAME'];?></td>
+	                                    <td><?=$row['FC_USER_FIRSTNAME']." ".$row['FC_USER_LASTNAME'];?></td>
+	                                    <td><a data-toggle="modal" data-id="<?=$row['FN_GROUP_ID'];?>" href="#modal_group_authentication" class="btn btn-success enter-selected-group">Enter</a>
+	                                </td>
+	                                
+	                                
+	                                </tr>
+	                
+								<?php endforeach; ?>
+                            
+                              
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                 
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+
+
+</div>
+
